@@ -22,13 +22,13 @@ class HYShareView: HYPickerView {
     }
 
     // 回调选中Item事件
-    override func router(with eventName: String, userInfo: [String : Any]?) {
+    override func router(with eventName: String, userInfo _: [String: Any]?) {
         if eventName == EventName.didSelectItem {
             delegate?.clickItemHandler()
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -45,31 +45,31 @@ extension HYShareView {
 // MARK: - UITableViewDataSource
 extension HYShareView: UITableViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         return cancelAction != nil ? 2 : 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? shareActions.count : 1
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
         return HYShareTableViewCell(style: .default, reuseIdentifier: HYShareTableViewCell.ID)
     }
 }
 
 // MARK: - UITableViewDelegate
 extension HYShareView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 1 ? 10 : 0.1
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath == IndexPath(row: 0, section: 1) ? 44 : HYShareTableViewCell.cellHeight
     }
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if  indexPath == IndexPath(row: 0, section: 1) {
+    func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath == IndexPath(row: 0, section: 1) {
             cell.textLabel?.text = "取消"
         } else {
             let shareCell = cell as? HYShareTableViewCell
@@ -78,13 +78,11 @@ extension HYShareView: UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
+    func tableView(_: UITableView, didEndDisplaying _: UITableViewCell, forRowAt _: IndexPath) {
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if  indexPath == IndexPath(row: 0, section: 1) {
-
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == IndexPath(row: 0, section: 1) {
         }
     }
 }
@@ -92,7 +90,7 @@ extension HYShareView: UITableViewDelegate {
 // MARK: - Events
 extension HYShareView {
     @objc fileprivate func clickedCancelBtnHandler() {
-//        cancelAction?.myHandler(cancelAction)
+        //        cancelAction?.myHandler(cancelAction)
         delegate?.clickItemHandler()
     }
 }

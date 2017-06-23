@@ -13,7 +13,7 @@ class HYShareCollectionCell: UICollectionViewCell {
     private lazy var button: UIButton = {
         let button = UIButton(frame: self.bounds)
         button.isUserInteractionEnabled = false
-        button.setTitleColor( UIColor.lightGray, for: .normal)
+        button.setTitleColor(UIColor.lightGray, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         return button
     }()
@@ -30,7 +30,7 @@ class HYShareCollectionCell: UICollectionViewCell {
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

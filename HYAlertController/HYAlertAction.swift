@@ -26,13 +26,13 @@ public struct HYAlertAction {
     public init(title: String, style: HYAlertActionStyle, handler: @escaping actionHandler) {
         self.title = title
         self.style = style
-        self.myHandler = handler
+        myHandler = handler
     }
 
     public init(title: String?, image: UIImage?, style: HYAlertActionStyle, handler: @escaping actionHandler) {
         self.title = title
         self.style = style
         self.image = image
-        self.myHandler = handler
+        myHandler = handler
     }
 }

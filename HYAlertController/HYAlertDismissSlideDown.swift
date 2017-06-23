@@ -11,7 +11,7 @@ import UIKit
 class HYAlertDismissSlideDown: NSObject, UIViewControllerAnimatedTransitioning {
 
     // MARK: - UIViewControllerAnimatedTransitioning
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval {
         return HYConstants.dismissAnimateDuration
     }
 
@@ -38,7 +38,7 @@ class HYAlertDismissSlideDown: NSObject, UIViewControllerAnimatedTransitioning {
             } else {
                 fromVC.view.alpha = 0
             }
-        }, completion: { (finished) in
+        }, completion: { _ in
             transitionContext.completeTransition(true)
         })
     }

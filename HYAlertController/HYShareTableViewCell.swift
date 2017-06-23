@@ -37,7 +37,7 @@ class HYShareTableViewCell: UITableViewCell {
         contentView.addSubview(collectionView)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -51,7 +51,7 @@ class HYShareTableViewCell: UITableViewCell {
 }
 
 extension HYShareTableViewCell: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return actions?.count ?? 0
     }
 
@@ -62,7 +62,7 @@ extension HYShareTableViewCell: UICollectionViewDataSource {
 
 extension HYShareTableViewCell: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.backgroundColor = .white
 
         let backgroundView = UIView(frame: cell.frame)

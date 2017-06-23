@@ -31,9 +31,9 @@ public class HYAlertController: UIViewController {
 
     lazy var dimBackgroundView: UIControl = {
         let control = UIControl(frame: CGRect(x: 0,
-            y: 0,
-            width: HYConstants.ScreenWidth,
-            height: HYConstants.ScreenHeight))
+                                              y: 0,
+                                              width: HYConstants.ScreenWidth,
+                                              height: HYConstants.ScreenHeight))
         control.backgroundColor = UIColor(white: 0, alpha: HYConstants.dimBackgroundAlpha)
         control.addTarget(self, action: #selector(clickedBgViewHandler), for: .touchDown)
         return control
@@ -59,13 +59,13 @@ public class HYAlertController: UIViewController {
 
 // MARK: - LifeCycle
 extension HYAlertController {
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear
         view.addSubview(dimBackgroundView)
     }
 
-    override public func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         let cancelHight = cancelAction != nil ? HYAlertCell.cellHeight + 10 : 0
@@ -73,21 +73,21 @@ extension HYAlertController {
         if alertStyle == .shareSheet {
             let tableHeight = HYShareTableViewCell.cellHeight * CGFloat(actionArray.count) + cancelHight
             let newTableFrame = CGRect(x: 0,
-                y: HYConstants.ScreenHeight - tableHeight,
-                width: HYConstants.ScreenWidth,
-                height: tableHeight)
+                                       y: HYConstants.ScreenHeight - tableHeight,
+                                       width: HYConstants.ScreenWidth,
+                                       height: tableHeight)
             pickerView.frame = newTableFrame
         } else if alertStyle == .actionSheet {
             let newTableFrame = CGRect(x: 0,
-                y: HYConstants.ScreenHeight - tableHeight,
-                width: HYConstants.ScreenWidth,
-                height: tableHeight)
+                                       y: HYConstants.ScreenHeight - tableHeight,
+                                       width: HYConstants.ScreenWidth,
+                                       height: tableHeight)
             pickerView.frame = newTableFrame
         } else {
             let newTableFrame = CGRect(x: 0,
-                y: 0,
-                width: HYConstants.ScreenWidth - HYConstants.alertSpec,
-                height: tableHeight)
+                                       y: 0,
+                                       width: HYConstants.ScreenWidth - HYConstants.alertSpec,
+                                       height: tableHeight)
             pickerView.frame = newTableFrame
             pickerView.center = view.center
         }
@@ -127,11 +127,11 @@ extension HYAlertController: HYActionDelegate {
 
 // MARK: - UIViewControllerTransitioningDelegate
 extension HYAlertController: UIViewControllerTransitioningDelegate {
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented _: UIViewController, presenting _: UIViewController, source _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return HYAlertPresentSlideUp()
     }
 
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed _: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return HYAlertDismissSlideDown()
     }
 }

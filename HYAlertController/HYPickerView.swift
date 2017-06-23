@@ -63,10 +63,10 @@ class HYPickerView: UIView {
         case .shareSheet:
             pickerView = HYShareView(frame: .zero)
         }
-        return  pickerView
+        return pickerView
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -93,7 +93,7 @@ class HYTitleView: UIView {
         frame.size.height = messageLabel.frame.height + titleLabel.frame.height + 28
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

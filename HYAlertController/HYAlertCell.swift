@@ -12,7 +12,6 @@ class HYAlertCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
     }
 
     var action: HYAlertAction? {
@@ -45,7 +44,7 @@ class HYAlertCell: UITableViewCell {
         textLabel?.center.x = center.x
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

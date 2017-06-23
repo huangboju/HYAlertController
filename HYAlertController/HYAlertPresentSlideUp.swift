@@ -11,7 +11,7 @@ import UIKit
 class HYAlertPresentSlideUp: NSObject, UIViewControllerAnimatedTransitioning {
 
     // MARK: - UIViewControllerAnimatedTransitioning
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval {
         return HYConstants.presentAnimateDuration
     }
 
@@ -26,9 +26,9 @@ class HYAlertPresentSlideUp: NSObject, UIViewControllerAnimatedTransitioning {
 
         if isSheet {
             toVC.pickerView.frame = CGRect(x: fromVC.view.frame.minX,
-                y: fromVC.view.frame.height,
-                width: fromVC.view.frame.width,
-                height: fromVC.view.frame.height)
+                                           y: fromVC.view.frame.height,
+                                           width: fromVC.view.frame.width,
+                                           height: fromVC.view.frame.height)
         } else {
             toVC.view.alpha = 0
         }
@@ -44,7 +44,7 @@ class HYAlertPresentSlideUp: NSObject, UIViewControllerAnimatedTransitioning {
             } else {
                 toVC.view.alpha = 1
             }
-        }, completion: { (finished) in
+        }, completion: { _ in
             transitionContext.completeTransition(true)
         })
     }
